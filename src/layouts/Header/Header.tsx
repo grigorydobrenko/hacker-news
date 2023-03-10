@@ -1,11 +1,7 @@
-import React from 'react';
-import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
-import {useAppDispatch} from "../../hooks/hooks";
-import {fetchNews} from "../../store/newsReducer";
+import React, {ReactNode} from 'react';
+import {AppBar, Box, Toolbar, Typography} from "@mui/material";
 
-const Header = (): JSX.Element => {
-
-    const dispatch = useAppDispatch()
+const Header: React.FC<Props> = ({children}) => {
 
     return (
         <Box sx={{flexGrow: 1, marginBottom: '20px'}}>
@@ -14,9 +10,7 @@ const Header = (): JSX.Element => {
                     <Typography variant="h6" component="div">
                         Hacker News
                     </Typography>
-                    <Button color="inherit" onClick={() => {
-                        dispatch(fetchNews())
-                    }}>Update news list</Button>
+                    {children}
                 </Toolbar>
             </AppBar>
         </Box>
@@ -24,3 +18,7 @@ const Header = (): JSX.Element => {
 };
 
 export default Header;
+
+type Props = {
+    children: ReactNode;
+}

@@ -6,5 +6,9 @@ export const hackerNewsService = {
     },
     fetchNews(id: number) {
         return httpService.get(`/item/${id}.json?print=pretty`)
+    },
+
+    fetchComments(id: number) {
+        return httpService.get(`/item/${id}.json?print=pretty`)
     }
 }
